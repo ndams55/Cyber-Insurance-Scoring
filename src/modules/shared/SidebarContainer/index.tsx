@@ -2,12 +2,12 @@ import {
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  PlusOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import styled from '@emotion/styled';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
+import { FaBuilding, FaClipboardList } from 'react-icons/fa';
 const { Header, Sider, Content } = Layout;
 
 const ContainerIcon = styled.div`
@@ -28,19 +28,31 @@ const ContainerIcon = styled.div`
     color: white;
   }
 `;
-export const Drawer = (props) => {
+export const Drawer = ({ children }: { children: ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Layout style={{ height: '100vh', backgroundColor: 'white' }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          bottom: 0,
+        }}
+      >
         <div className='logo' />
         {!collapsed ? (
           <ContainerIcon>
             <div>
               <UserOutlined style={{ fontSize: 100, color: 'white' }} />
             </div>
-            <h2>Administrateur</h2>
+            <h2>Cyber Assurance</h2>
           </ContainerIcon>
         ) : (
           <div style={{ display: 'flex', justifyContent: 'center', margin: 5 }}>
@@ -55,22 +67,31 @@ export const Drawer = (props) => {
           items={[
             {
               key: '1',
-              icon: <PlusOutlined />,
-              label: 'Nouvelles entrées',
+              icon: <FaClipboardList />,
+              label: 'Souscription',
             },
             {
               key: '2',
+              icon: <FaBuilding />,
+              label: 'Entreprise',
+            },
+            {
+              key: '5',
               icon: <LogoutOutlined />,
-              label: 'Deconnecter',
+              label: 'Déconnecter',
             },
           ]}
         />
       </Sider>
-      <Layout className='site-layout'>
+      <Layout
+        style={{ backgroundColor: 'white', marginLeft: collapsed ? 60 : 200 }}
+      >
         <Header
-          className='site-layout-background'
           style={{
             padding: 0,
+            position: 'fixed',
+            zIndex: 1,
+            width: '100%',
           }}
         >
           {React.createElement(
@@ -83,14 +104,13 @@ export const Drawer = (props) => {
           )}
         </Header>
         <Content
-          className='site-layout-background'
           style={{
-            margin: '24px 16px',
+            margin: '64px 16px',
             padding: 24,
             minHeight: 280,
           }}
         >
-          {props.children}
+          {children}
         </Content>
       </Layout>
     </Layout>

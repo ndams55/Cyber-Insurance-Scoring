@@ -1,5 +1,5 @@
 export const PRIMARY = '#512da8';
-export const SECONDARY = '#fdd835';
+export const BLUE = '#1890ff';
 
 export const SEMIDARK = '#404e67';
 
