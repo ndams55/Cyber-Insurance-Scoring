@@ -1,6 +1,7 @@
 import 'antd/dist/antd.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AssureurDashboard } from './modules/assureur/pages/dashboard';
+import { Entreprises } from './modules/assureur/pages/entreprise';
+import { Questionnaire } from './modules/assureur/pages/questionnaire';
 import { LoginPage } from './modules/login';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
         <Route path='login' element={<LoginPage />} />
 
         <Route path='assureur'>
-          <Route path='souscription' element={<AssureurDashboard />} />
+          <Route path='entreprise' element={<Entreprises />} />
+          <Route path='souscription' element={<Questionnaire />} />
         </Route>
       </Routes>
     </BrowserRouter>

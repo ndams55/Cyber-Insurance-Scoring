@@ -39,7 +39,7 @@ const Container = styled.div`
   }
 `;
 
-export const AssureurDashboard = () => {
+export const Questionnaire = () => {
   return (
     <Drawer>
       <Container>

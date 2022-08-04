@@ -7,7 +7,9 @@ import {
 import styled from '@emotion/styled';
 import { Layout, Menu } from 'antd';
 import React, { ReactNode, useState } from 'react';
-import { FaBuilding, FaClipboardList } from 'react-icons/fa';
+import { FaBuilding } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../routes';
 const { Header, Sider, Content } = Layout;
 
 const ContainerIcon = styled.div`
@@ -30,6 +32,7 @@ const ContainerIcon = styled.div`
 `;
 export const Drawer = ({ children }: { children: ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const router = useNavigate();
 
   return (
     <Layout style={{ height: '100vh', backgroundColor: 'white' }}>
@@ -67,13 +70,9 @@ export const Drawer = ({ children }: { children: ReactNode }) => {
           items={[
             {
               key: '1',
-              icon: <FaClipboardList />,
-              label: 'Souscription',
-            },
-            {
-              key: '2',
               icon: <FaBuilding />,
-              label: 'Entreprise',
+              label: 'Entreprises',
+              onClick: () => router(ROUTES.ASSUREUR.ENTREPRISE),
             },
             {
               key: '5',

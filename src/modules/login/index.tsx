@@ -73,7 +73,7 @@ export const LoginPage = () => {
             onFinish={async (data) => {
               setIsLoading(true);
               const { email, password } = data;
-              router(ROUTES.ASSUREUR.SOUSCRIPTION);
+              router(ROUTES.ASSUREUR.ENTREPRISE);
 
               await signIn(email, password)
                 .then((data) => {
