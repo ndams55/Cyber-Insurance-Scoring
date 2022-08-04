@@ -3,12 +3,12 @@ import { Input, Space, Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
 import { Key } from 'antd/lib/table/interface';
 import { ReactNode, useState } from 'react';
-import { SEMIDARK } from '../../../shared/colors';
+import { BLUE } from '../../../shared/colors';
 import { DateFrHrWithTime } from '../DateToFrench';
 
 const DataTableContainer = styled.div`
   th {
-    background-color: ${SEMIDARK} !important;
+    background-color: ${BLUE} !important;
     color: white !important;
     font-weight: bold;
   }
@@ -18,7 +18,7 @@ const DataTableContainer = styled.div`
   }
 `;
 
-export const DataTable = <T extends { _id: string }>({
+export const DataTable = <T extends { id: string }>({
   data,
   columns,
   loading,
@@ -89,11 +89,12 @@ export const DataTable = <T extends { _id: string }>({
               }
             : {}
         }
-        size='middle'
-        rowKey='_id'
+        size='small'
+        bordered
+        rowKey='id'
         onRow={(row) => ({
           onClick: () => {
-            selectRow(row._id);
+            selectRow(row.id);
           },
         })}
       />
