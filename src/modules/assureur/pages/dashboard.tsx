@@ -64,7 +64,7 @@ export const AssureurDashboard = () => {
         <Questions />
         <Antecedents />
         <AutreInfo />
-        <h2>Déclaration</h2>
+        <h2 style={{ marginTop: 50 }}>Déclaration</h2>
         <p>
           Je sousigné <Input style={{ width: 150, margin: '0px 10px' }} />{' '}
           occupant la fonction de{' '}

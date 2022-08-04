@@ -31,6 +31,7 @@ const Container = styled.div`
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    font-size: 15px;
   }
 
   th {
