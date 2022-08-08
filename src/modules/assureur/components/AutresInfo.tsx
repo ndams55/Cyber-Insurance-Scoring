@@ -17,7 +17,11 @@ const Container = styled.div`
   }
 `;
 
-export const AutreInfo = () => {
+export const AutreInfo = ({
+  onChange,
+}: {
+  onChange: (field: any, val: any) => void;
+}) => {
   return (
     <Container>
       <h2>Autres informations (Know you client) </h2>
@@ -25,13 +29,23 @@ export const AutreInfo = () => {
         <Row>
           <Col span={10}>Ratio de solvabilité : </Col>
           <Col span={14}>
-            <Input placeholder='ratio de solvabilité' />
+            <Input
+              placeholder='ratio de solvabilité'
+              onChange={(e) =>
+                onChange('R_SOLVABILITE', Number(e.target.value))
+              }
+            />
           </Col>
         </Row>
         <Row>
           <Col span={10}>Taux de couverture de la dette : </Col>
           <Col span={14}>
-            <Input placeholder='taux de couverture de la dette' />
+            <Input
+              placeholder='taux de couverture de la dette'
+              onChange={(e) =>
+                onChange('TAUX_COUVERTURE_DETTE', Number(e.target.value))
+              }
+            />
           </Col>
         </Row>
       </div>

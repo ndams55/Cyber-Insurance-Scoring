@@ -44,18 +44,6 @@ export const DataTable = <T extends { id: string }>({
     filterFunction ? filterFunction(dataItem, filterValue) : true,
   );
 
-  const selectRow = (rowId: string | number) => {
-    if (selectedRowKeys && onSelectedRowKeysChange) {
-      let newSelectedRowKeys: Key[] = [];
-      if (selectedRowKeys.length === 0) {
-        newSelectedRowKeys = [rowId];
-      } else if (selectedRowKeys.indexOf(rowId) < 0) {
-        newSelectedRowKeys = [...selectedRowKeys, rowId];
-      }
-      onSelectedRowKeysChange(newSelectedRowKeys);
-    }
-  };
-
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectedRowKeysChange,
@@ -91,12 +79,6 @@ export const DataTable = <T extends { id: string }>({
         }
         size='small'
         bordered
-        rowKey='id'
-        onRow={(row) => ({
-          onClick: () => {
-            selectRow(row.id);
-          },
-        })}
       />
     </DataTableContainer>
   );

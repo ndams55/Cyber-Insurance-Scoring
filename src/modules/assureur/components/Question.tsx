@@ -41,7 +41,11 @@ const Container = styled.div`
   }
 `;
 
-export const Questions = () => {
+export const Questions = ({
+  onChange,
+}: {
+  onChange: (field: any, val: any) => void;
+}) => {
   return (
     <Container>
       <h2>Questions</h2>
@@ -72,72 +76,72 @@ export const Questions = () => {
 
 const QUESTIONS = [
   {
-    id: 1,
+    id: 'ANTIVIRUS_FIREWALL',
     question:
       'Utilisez-vous un antivirus et un firewall mis à jour au moins tous les 30 jours ?',
   },
   {
-    id: 2,
+    id: 'MISES_A_JOUR',
     question:
       'Mettez-vous à jour les logiciels et les systèmes que vous utilisez au moins tous les 30 jours ? ',
   },
   {
-    id: 3,
+    id: 'ANALYSE_VULNERABILITES',
     question:
       'Conduisez-vous des tests d’analyse de vulnérabilité régulièrement ?',
   },
   {
-    id: 4,
+    id: 'LEAST_PRIVILEGE',
     question:
       'Avez vous recours à des comptes administrateurs pour des usages basiques (navigation sur internet, utilisation d’une boîte mail), car ceux-ci sont des comptes sans privilèges administrateurs.',
   },
   {
-    id: 5,
+    id: 'CONTROLE_ACCES',
     question:
       'Restreignez-vous les accès de vos employés à votre système d’information et aux informations sur la base de ce dont ils ont besoin pour travailler ? De plus, leurs accès sont-ils systématiquement coupés lorsque vos employés quittent votre entreprise ?',
   },
   {
-    id: 6,
+    id: 'CHARTE_MOT_DE_PASSE',
     question:
       'Avez-vous une charte qui explique les caractéristiques d’un bon mot de passe (comme ne pas utiliser les mots de passe similaires ou facile à retrouver) pour tous vos systèmes ? ',
   },
   {
-    id: 7,
+    id: 'DONNEES_CRYPTEES',
     question:
       'Les données que vous stockez sont-elles cryptées lorsqu’elles sont : Sur votre réseau ? Sur les périphériques de stockage mobiles ou terminaux mobiles ?',
   },
   {
-    id: 8,
+    id: 'STANDARD_PCI_DSS',
     question:
       'Si vous acceptez les paiements par carte bancaire, êtes-vous conforme au standard PCI DSS 3.2 ou avez-vous recours à un fournisseur qui y est conforme ?',
   },
   {
-    id: 9,
+    id: 'VERIF_SECU_PRESTATAIRES',
     question:
       'Vérifiez-vous le niveau de cyber-sécurité de vos nouveaux prestataires au moins une fois par an ?',
   },
   {
-    id: 10,
+    id: 'AUDIT_ANNUEL_PRESTATAIRES',
     question:
       'Faites-vous des audits de cybersécurité chez vos prestataires au moins une fois par an ?',
   },
   {
-    id: 11,
+    id: 'POLITIQUE_REF_SECU',
     question:
       'Avez-vous mis en place une politique de gestion des données personnelles et de sécurité informatique applicable à l’ensemble des services et filiales de l’entreprise ?',
   },
   {
-    id: 12,
+    id: 'PLAN_CONTINUITE',
     question:
       'Avez vous mis en place un plan (que vous testez régulièrement) de reprise/continuation d’activités en cas d’incident sur vos systèmes d’information ?',
   },
   {
-    id: 13,
+    id: 'RTO_RPO_DEFINIS',
     question:
       'Avez vous mis en place des objectifs de temps de récupération / reprises d’activités (RTO) et/ou des objectifs de point de récupération (RPO) en cas de sinistre, estimés à plus de 12h ?',
   },
   {
-    id: 14,
+    id: 'FORMATION_EMPLOYES',
     question:
       'Avez-vous mis en place un programme de formation / sensibilisation à la cybersécurité pour vos employés ?',
   },

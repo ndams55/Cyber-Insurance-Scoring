@@ -23,6 +23,11 @@ export const Entreprises = () => {
       key: 'name',
     },
     {
+      title: 'Adresse',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
       title: "Date d'enregistrement",
       dataIndex: 'date',
       key: 'date',
@@ -96,13 +101,30 @@ export const Entreprises = () => {
       <Container>
         <h3>Listes des entreprises assurés</h3>
 
-        <DataTable
+        <DataTable<CompanyEntity>
           columns={columns}
-          data={[
-            { id: '1', name: 'Megasoft', date: '2022-06-28T18:10:18.113849Z' },
-            { id: '2', name: 'Yowyob', date: '2022-07-02T16:13:18.113849Z' },
-            { id: '3', name: 'SmartDs', date: '2022-07-08T08:40:18.113849Z' },
-          ]}
+          data={
+            [
+              {
+                id: '1',
+                name: 'Megasoft',
+                address: 'Bastos',
+                date: '2022-06-28T18:10:18.113849Z',
+              },
+              {
+                id: '2',
+                name: 'Yowyob',
+                address: 'Melen',
+                date: '2022-01-02T16:13:18.113849Z',
+              },
+              {
+                id: '3',
+                name: 'SmartDs',
+                address: 'Omnisport',
+                date: '2022-07-08T08:40:18.113849Z',
+              },
+            ] as any
+          }
           buttons={
             <Button
               type='primary'

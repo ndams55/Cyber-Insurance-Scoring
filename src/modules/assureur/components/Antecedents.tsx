@@ -41,7 +41,11 @@ const Container = styled.div`
   }
 `;
 
-export const Antecedents = () => {
+export const Antecedents = ({
+  onChange,
+}: {
+  onChange: (field: any, val: any) => void;
+}) => {
   return (
     <Container>
       <h2>Antécédents </h2>
@@ -72,27 +76,27 @@ export const Antecedents = () => {
 
 const ANTECEDENT = [
   {
-    id: 1,
+    id: 'VICTIME_SINISTRE',
     antecedent:
       "Durant les 5 dernières années, avez-vous subi un sinistre d'un coût total supérieur à 1 000 000 Fcfa (que celui-ci ait été indemnisé ou non).",
   },
   {
-    id: 2,
+    id: 'OBJET_ENQUETES',
     antecedent:
       "Durant les 5 dernières années, avez-vous déjà fait l'objet d'une enquête d’un organisme chargé de veiller au respect des lois et des règlements en vigueur en ce qui concerne les domaines de la confidentialité, l’intégrité et l’accessibilité des données.",
   },
   {
-    id: 3,
+    id: 'DEJA_ETE_ASSURE',
     antecedent:
       'Durant les 5 dernières années, avez-vous déjà été assuré par une cyber assurance ?',
   },
   {
-    id: 4,
+    id: 'NBRE_RECLAMATIONS',
     antecedent:
       'Si oui, avez vous eu à faire des réclamations pendant votre période de couverture ? Indiquez le nombre de réclamations faites. ',
   },
   {
-    id: 5,
+    id: 'MAJ_GARANTIE_DIM,MAJ_GARANTIE_AUG',
     antecedent:
       'Durant votre période de couverture, votre garantie d’assurance a-t-elle été mise à jour?  Si oui, précisez si la cause était une diminution ou une augmentation du risque.',
   },

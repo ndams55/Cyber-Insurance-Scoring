@@ -35,7 +35,11 @@ const Container = styled.div`
   }
 `;
 
-export const ChiffreAffaire = () => {
+export const ChiffreAffaire = ({
+  onChange,
+}: {
+  onChange: (field: any, val: any) => void;
+}) => {
   return (
     <Container>
       <h2>Chiffre Affaire</h2>
@@ -51,17 +55,29 @@ export const ChiffreAffaire = () => {
           <tr>
             <td>
               <Input.Group compact>
-                <Input style={{ width: '60%' }} suffix='FCFA' />
+                <Input
+                  style={{ width: '60%' }}
+                  suffix='FCFA'
+                  onChange={(e) => onChange('CA_LAST', e.target.value)}
+                />
               </Input.Group>
             </td>
             <td>
               <Input.Group compact>
-                <Input style={{ width: '60%' }} suffix='FCFA' />
+                <Input
+                  style={{ width: '60%' }}
+                  suffix='FCFA'
+                  onChange={(e) => onChange('CA_PREVISIONNEL', e.target.value)}
+                />
               </Input.Group>
             </td>
             <td>
               <Input.Group compact>
-                <Input style={{ width: '60%' }} suffix='FCFA' />
+                <Input
+                  style={{ width: '60%' }}
+                  suffix='FCFA'
+                  onChange={(e) => onChange('CA_A_VENIR', e.target.value)}
+                />
               </Input.Group>
             </td>
           </tr>
@@ -72,7 +88,12 @@ export const ChiffreAffaire = () => {
             Pourcentage moyen de la marge brute d'exploitation (les 03 dernières
             années)
           </p>
-          <Input style={{ width: 100 }} size='large' suffix='%' />
+          <Input
+            style={{ width: 100 }}
+            size='large'
+            suffix='%'
+            onChange={(e) => onChange('MARGE_BRUTE_EXPL', e.target.value)}
+          />
         </Space>
       </div>
     </Container>

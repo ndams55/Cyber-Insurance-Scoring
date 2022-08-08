@@ -17,7 +17,13 @@ const Container = styled.div`
   }
 `;
 
-export const Identification = () => {
+export const Identification = ({
+  onChange,
+  setCompany,
+}: {
+  onChange: (field: any, val: any) => void;
+  setCompany: (field: any, val: any) => void;
+}) => {
   return (
     <Container>
       <h2>Identification</h2>
@@ -25,19 +31,29 @@ export const Identification = () => {
         <Row>
           <Col span={10}>Raison sociale du proposant : </Col>
           <Col span={14}>
-            <Input placeholder='raison sociale du proposant' />{' '}
+            <Input
+              placeholder='raison sociale du proposant'
+              onChange={(e) => setCompany('socialReason', e.target.value)}
+            />{' '}
           </Col>
         </Row>
         <Row>
           <Col span={10}>Adresse de la société : </Col>
           <Col span={14}>
-            <Input placeholder='adresse de la société' />{' '}
+            <Input
+              placeholder='adresse de la société'
+              onChange={(e) => setCompany('address', Number(e.target.value))}
+            />
           </Col>
         </Row>
         <Row>
           <Col span={10}>Secteur d'activité : </Col>
           <Col span={14}>
-            <Select placeholder="secteur d'activité" style={{ width: '100%' }}>
+            <Select
+              placeholder="secteur d'activité"
+              style={{ width: '100%' }}
+              onChange={(e) => onChange('SEC_ACT', e)}
+            >
               <Select.Option value='Informatique'>Informatique</Select.Option>
               <Select.Option value='Cyber sécurité'>
                 Cyber sécurité
@@ -46,6 +62,15 @@ export const Identification = () => {
                 Audit des systèmes
               </Select.Option>
             </Select>{' '}
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>Nombre d'employés : </Col>
+          <Col span={14}>
+            <Input
+              placeholder='nombre employés'
+              onChange={(e) => onChange('NBRE_EMPL', Number(e.target.value))}
+            />
           </Col>
         </Row>
       </div>

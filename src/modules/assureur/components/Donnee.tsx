@@ -42,7 +42,11 @@ const Container = styled.div`
   }
 `;
 
-export const Donnees = () => {
+export const Donnees = ({
+  onChange,
+}: {
+  onChange: (field: any, val: any) => void;
+}) => {
   const [selectedClass, setSelectedClass] = useState('');
 
   return (
@@ -87,7 +91,10 @@ export const Donnees = () => {
                   {item.classe}{' '}
                   <Checkbox
                     checked={selectedClass === item.classe ? true : false}
-                    onChange={() => setSelectedClass(item.classe)}
+                    onChange={() => {
+                      setSelectedClass(item.classe);
+                      onChange('DATA_NBRE_PERS', item.value);
+                    }}
                   />
                 </Space>
               </td>
@@ -103,21 +110,26 @@ const DATA = [
   {
     label: '< 100,000',
     classe: 'Classe A',
+    value: 'A',
   },
   {
     label: '100,000 - 500,000',
     classe: 'Classe B',
+    value: 'B',
   },
   {
     label: '500,001 - 1,000,000',
     classe: 'Classe C',
+    value: 'C',
   },
   {
     label: '1,000,001 - 6,000,000',
     classe: 'Classe D',
+    value: 'D',
   },
   {
     label: '> 6,000,000',
     classe: 'Classe E',
+    value: 'E',
   },
 ];
