@@ -44,6 +44,7 @@ export const Entreprises = () => {
                 icon={<FaPen size={13} />}
                 type='primary'
                 shape='circle'
+                onClick={() => router(ROUTES.ASSUREUR.SOUSCRIPTION)}
               />
             </Tooltip>
 
@@ -82,11 +83,11 @@ export const Entreprises = () => {
               </ButtonWithModal>
             </Tooltip>
 
-            <Tooltip title='Souscription'>
+            <Tooltip title='Voir profil'>
               <Button
                 icon={<FaClipboardList size={15} />}
                 type='primary'
-                onClick={() => router(ROUTES.ASSUREUR.SOUSCRIPTION)}
+                onClick={() => router(ROUTES.ASSUREUR.PROFIL)}
                 shape='circle'
               />
             </Tooltip>

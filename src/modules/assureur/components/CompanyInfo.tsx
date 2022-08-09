@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
-import { Button, Col, Input, Row } from 'antd';
+import { Button, Col, Input, Row, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../routes';
 
 const Container = styled.div`
   min-width: 600px;
+  margin-bottom: 50px;
 
   > h2 {
     font-family: Montserrat;
@@ -17,7 +18,7 @@ const Container = styled.div`
   }
 `;
 
-export const CompanyInfo = () => {
+export const CompanyInfo = ({ back }: { back: () => void }) => {
   const router = useNavigate();
 
   const submit = () => {
@@ -29,43 +30,46 @@ export const CompanyInfo = () => {
       <h2>Company Information</h2>
 
       <Row style={{ marginBottom: 30 }}>
-        <Col span={10}>Company : </Col>
-        <Col span={10}>
+        <Col span={8}>Company : </Col>
+        <Col span={16}>
           <Input placeholder='company' />
         </Col>
       </Row>
 
       <Row style={{ marginBottom: 30 }}>
-        <Col span={10}>Business sector : </Col>
-        <Col span={10}>
+        <Col span={8}>Business sector : </Col>
+        <Col span={16}>
           <Input placeholder='business sector' />
         </Col>
       </Row>
 
       <Row style={{ marginBottom: 30 }}>
-        <Col span={10}>Turnover : </Col>
-        <Col span={10}>
+        <Col span={8}>Turnover : </Col>
+        <Col span={16}>
           <Input placeholder='turnover' />
         </Col>
       </Row>
 
       <Row style={{ marginBottom: 30 }}>
-        <Col span={10}>Backup : </Col>
-        <Col span={10}>
+        <Col span={8}>Backup : </Col>
+        <Col span={16}>
           <Input placeholder='backup' />
         </Col>
       </Row>
 
       <Row style={{ marginBottom: 30 }}>
-        <Col span={10}>Firewall : </Col>
-        <Col span={10}>
+        <Col span={8}>Firewall : </Col>
+        <Col span={16}>
           <Input placeholder='firewall' />
         </Col>
       </Row>
 
-      <Button type='primary' size='large' onClick={submit}>
-        Soumettre
-      </Button>
+      <Space style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Button onClick={back}>Retour</Button>
+        <Button type='primary' onClick={submit}>
+          Soumettre
+        </Button>
+      </Space>
     </Container>
   );
 };
