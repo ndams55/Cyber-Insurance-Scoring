@@ -5,5 +5,6 @@ export const ROUTES = {
     ENTREPRISE: '/assureur/entreprise',
     NEW_COMPANY: '/assureur/newCompany',
     SOUSCRIPTION: '/assureur/souscription',
+    PROFIL: '/assureur/profil',
   },
 };
