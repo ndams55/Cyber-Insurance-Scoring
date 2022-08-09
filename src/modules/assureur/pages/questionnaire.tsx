@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { Alert, Button, Divider, Input } from 'antd';
 import { useEffect, useState } from 'react';
+import { FaChevronLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { Drawer } from '../../shared/SidebarContainer';
 import { Antecedents } from '../components/Antecedents';
 import { AutreInfo } from '../components/AutresInfo';
@@ -75,6 +77,7 @@ export type ValType = boolean | number | string;
 
 export const Questionnaire = () => {
   const [company, setCompany] = useState<any>();
+  const router = useNavigate();
   const [questionnaire, setQuestionnaire] = useState<any>({
     SEC_ACT: '',
     CA_LAST: 0,
@@ -116,6 +119,14 @@ export const Questionnaire = () => {
   return (
     <Drawer>
       <Container>
+        <Button
+          icon={<FaChevronLeft style={{ margin: '5px 5px 0 0' }} />}
+          size='large'
+          shape='circle'
+          onClick={() => router(-1)}
+          style={{ marginBottom: 30 }}
+        />
+
         <div className='heading'>
           <h1>Questionnaire de souscription</h1>
           <Divider style={{ height: 2, backgroundColor: 'black', margin: 0 }} />

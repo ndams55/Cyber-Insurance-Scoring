@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { Steps } from 'antd';
+import { Button, Steps } from 'antd';
 import { useState } from 'react';
+import { FaChevronLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { Drawer } from '../../shared/SidebarContainer';
 import { CompanyInfo } from '../components/CompanyInfo';
 import { FileUpload } from '../components/FileUpload';
@@ -17,10 +19,19 @@ const Container = styled.div`
 
 export const NewCompany = () => {
   const [step, setStep] = useState(0);
+  const router = useNavigate();
 
   return (
     <Drawer>
       <Container>
+        <Button
+          icon={<FaChevronLeft style={{ margin: '5px 5px 0 0' }} />}
+          size='large'
+          shape='circle'
+          onClick={() => router(-1)}
+          style={{ marginBottom: 30 }}
+        />
+
         <Steps current={step}>
           <Steps.Step
             title='Chargement des fichiers'
@@ -35,7 +46,7 @@ export const NewCompany = () => {
           {step === 0 ? (
             <FileUpload onFinish={() => setStep(1)} />
           ) : (
-            <CompanyInfo />
+            <CompanyInfo back={() => setStep(0)} />
           )}
         </div>
       </Container>
