@@ -1,0 +1,63 @@
+.container {
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: stretch;
+  align-items: center;
+  background-color: rebeccapurple;
+}
+
+.container h1 {
+  font-size: 28px;
+  line-height: 40px;
+  margin: 0;
+}
+
+.container h2 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.container svg {
+  filter: drop-shadow(0 0 10px rgb(0 0 0 / 0.4));
+}
+
+.container .circle-container {
+  width: var(--dot-diameter);
+  height: var(--dot-diameter);
+  transform: rotate(-225deg);
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 75 100;
+  stroke-linecap: round;
+}
+
+.container .circle-container__background {
+  fill: none;
+  stroke: var(--default-color);
+  stroke-width: var(--circle-border-width);
+  stroke-dasharray: 75 100;
+  stroke-linecap: round;
+}
+
+.container .circle-container__progress {
+  fill: none;
+  stroke-linecap: round;
+  stroke: url(#gradient);
+  stroke-dasharray: 75 100;
+  stroke-linecap: round;
+  stroke-width: var(--circle-border-width);
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.container .stop1 {
+  stop-color: #e66465;
+}
+
+.container .stop2 {
+  stop-color: #9198e5;
+}
